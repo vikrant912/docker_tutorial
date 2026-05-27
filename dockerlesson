@@ -1,1 +1,126 @@
-git 
+docker run <image>
+docker run -d <image>                # run in background
+docker run -it <image> /bin/bash     # interactive shell
+docker run -p 8080:80 <image>        # port mapping
+docker run --name myapp <image>      # name container
+List containers
+docker ps
+docker ps -a
+
+Stop, start, restart
+docker stop <container>
+docker start <container>
+docker restart <container>
+
+Remove containers
+docker rm <container>
+docker rm -f <container>
+
+
+3️⃣ Images
+List images
+docker images
+
+Build image
+docker build -t myapp .
+docker build -t myapp:1.0 .
+
+Remove image
+docker rmi <image>
+docker rmi -f <image>
+
+Pull image
+docker pull ubuntu
+docker pull node:18
+
+Push image
+docker push username/myapp
+
+
+4️⃣ Logs, Inspect, Exec
+Container logs
+docker logs <container>
+docker logs -f <container>      # follow logs
+
+Exec inside container
+docker exec -it <container> /bin/bash
+docker exec -it <container> sh
+
+Inspect container
+docker inspect <container>
+
+
+5️⃣ Docker Compose
+Start all services
+docker-compose up
+docker-compose up -d
+
+Stop
+docker-compose down
+
+View logs
+docker-compose logs
+docker-compose logs -f
+
+Rebuild
+docker-compose up --build
+
+
+6️⃣ Docker Networks
+docker network ls
+docker network create mynetwork
+docker network inspect mynetwork
+docker network connect mynetwork <container>
+docker network disconnect mynetwork <container>
+
+
+7️⃣ Docker Volumes
+List volumes
+docker volume ls
+
+Create volume
+docker volume create myvol
+
+Inspect volume
+docker volume inspect myvol
+
+Remove volume
+docker volume rm myvol
+
+
+8️⃣ Save / Load Images (Your recent question 👍)
+Save image to tar
+docker save -o myimage.tar myapp:1.0
+
+Load image from tar
+docker load -i myimage.tar
+
+
+9️⃣ Clean-up Commands
+Stop all containers
+docker stop $(docker ps -aq)
+
+Remove all containers
+docker rm $(docker ps -aq)
+
+Remove all images
+docker rmi $(docker images -q)
+
+Remove everything (DANGER)
+docker system prune -a
+
+
+🔟 Tagging Images
+docker tag myapp:latest username/myapp:1.0
+
+
+1️⃣1️⃣ Copy files
+Copy from host → container
+docker cp file.txt <container>:/app
+
+Copy container → host
+docker cp <container>:/app/file.txt .
+
+
+1️⃣2️⃣ Stats & Resource Usage
+docker stats
