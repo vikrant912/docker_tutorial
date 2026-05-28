@@ -153,3 +153,4 @@ services:
 
 By default docker compose will set up single network on which all container in compose file will run
 
+docker compose will take name of folder prefix where yaml file is stored 
