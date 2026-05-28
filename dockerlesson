@@ -124,3 +124,5 @@ docker cp <container>:/app/file.txt .
 
 1️⃣2️⃣ Stats & Resource Usage
 docker stats
+------------------------------------------
+docker compose
