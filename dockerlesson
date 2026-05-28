@@ -162,3 +162,19 @@ docker compose -f filename.yaml down
 to only stop :-
 docker compose -f filename.yaml stop
 
+In compose file we can specify build the app in same file as below
+
+version: '3'
+services:
+   my-app:
+    build:.
+    ports:
+    - 3000:3000
+  mongodb:
+    image: mongo
+    ports:
+      - 27017:27017
+    environment:
+
+we can set env variable like below:- 
+export it in locally 
